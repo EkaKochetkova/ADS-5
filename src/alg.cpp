@@ -41,25 +41,27 @@ std::string infx2pstfx(std::string inf) {
     std::string result;
     TStack <char, 100> stack;
     for (int i = 0; i < inf.length(); i++) {
-        if (prior(inf[i]) == 5) {
+        if (pr(inf[i]) == 5) {
             result.push_back(inf[i]);
             result.push_back(' ');
         } else {
-            if (prior(inf[i]) == 4) {
+            if (pr(inf[i]) == 4) {
                 continue;
-            } else if (prior(inf[i]) > prior(stack.get()) || prior(inf[i]) == 0) {
+            } else if (pr(inf[i]) > pr(stack.get())) {
+                stack.push(inf[i]);
+            } else if (pr(inf[i]) == 0) {
                 stack.push(inf[i]);
             } else if (stack.isEmpty()) {
                 stack.push(inf[i]);
-            } else if (prior(inf[i]) == 1) {
-                while (prior(stack.get()) != 0) {
+            } else if (pr(inf[i]) == 1) {
+                while (pr(stack.get()) != 0) {
                     result.push_back(stack.get());
                     result.push_back(' ');
                     stack.pop();
                 }
                 stack.pop();
             } else {
-                while (!stack.isEmpty() && (prior(inf[i]) <= prior(stack.get()))) {
+                while (!stack.isEmpty() && (pr(inf[i]) <= pr(stack.get()))) {
                     result.push_back(stack.get());
                     result.push_back(' ');
                     stack.pop();
@@ -80,9 +82,9 @@ int eval(std::string pref) {
     TStack <int, 100> stack;
     int result = 0;
     for (int i = 0; i < pref.length(); i++) {
-        if (prior(pref[i]) == 4) {
+        if (pr(pref[i]) == 4) {
             stack.push(pref[i] - '0');
-        } else if (prior(pref[i]) < 4) {
+        } else if (pr(pref[i]) < 4) {
             int a = stack.get();
             stack.pop();
             int b = stack.get();
