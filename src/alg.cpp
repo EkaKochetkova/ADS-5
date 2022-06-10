@@ -47,11 +47,11 @@ std::string infx2pstfx(std::string inf) {
         } else {
             if (pr(inf[i]) == 4) {
                 continue;
+            } else if (stack.isEmpty()) {
+                stack.push(inf[i]);
             } else if (pr(inf[i]) > pr(stack.get())) {
                 stack.push(inf[i]);
             } else if (pr(inf[i]) == 0) {
-                stack.push(inf[i]);
-            } else if (stack.isEmpty()) {
                 stack.push(inf[i]);
             } else if (pr(inf[i]) == 1) {
                 while (pr(stack.get()) != 0) {
