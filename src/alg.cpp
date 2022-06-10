@@ -34,7 +34,7 @@ int calc(char operation, int a, int b) {
     case '/':
         return a / b;
     default:
-        return 0;
+        return 5;
     }
 }
 std::string infx2pstfx(std::string inf) {
