@@ -84,7 +84,7 @@ int eval(std::string pref) {
     int b = 0;
     int a = 0;
     for (int i = 0; i < pref.length(); i++) {
-        if (pr(pref[i]) == 4) {
+        if (pr(pref[i]) == 5) {
             stack.push(pref[i] - '0');
         } else if (pr(pref[i]) < 4) {
             b = stack.get();
