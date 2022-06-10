@@ -22,19 +22,25 @@ public:
     
     void pop() {
         if (!isEmpty()) {
-            top--;
+            --top;
+        } else {
+            throw "Full!";
         }
     }
     
     T get() const {
         if (!isEmpty()) {
             return arr[top];
-        }    
+        } else {
+            throw "Empty!";
+        }     
     }
     
     void push(T value) {
         if (!isFull()) {
             arr[top++] = value;
+        } else {
+            throw "Empty!";
         }       
     }
     
