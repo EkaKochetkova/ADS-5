@@ -5,21 +5,17 @@
 template<typename T, int size>
 class TStack {
 private:
-    T arr[1000];
+    T arr[100];
     int top;
-    
 public:
     TStack() : top(-1) {
     }
-    
     bool isEmpty() {
-        return top == -1; 
+        return top == -1;
     }
-    
     bool isFull() {
-        return top == size - 1; 
+        return top == size - 1;
     }
-    
     void pop() {
         if (!isEmpty()) {
             --top;
@@ -27,22 +23,19 @@ public:
             throw "Full!";
         }
     }
-    
     T get() const {
         if (!isEmpty()) {
             return arr[top];
         } else {
             throw "Empty!";
-        }     
+        }
     }
-    
     void push(T value) {
         if (!isFull()) {
             arr[top++] = value;
         } else {
             throw "Empty!";
-        }       
+        }
     }
-    
 };
 #endif  // INCLUDE_TSTACK_H_
