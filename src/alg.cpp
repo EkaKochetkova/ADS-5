@@ -11,30 +11,30 @@ int prior(char operation) {
         return 1;
     case '-':
         return 2;
-    case '+': 
+    case '+':
         return 2;
-    case '*': 
+    case '*':
         return 3;
-    case '/': 
+    case '/':
         return 3;
-    case ' ': 
+    case ' ':
         return 4;
-    default: 
-        return 5; 
+    default:
+        return 5;
     }
 }
 
 int calc(char operation, int a, int b) {
     switch (operation) {
-    case '+': 
+    case '+':
         return a + b;
-    case '-': 
+    case '-':
         return a - b;
-    case '*': 
+    case '*':
         return a * b;
-    case '/': 
+    case '/':
         return a / b;
-    default: 
+    default:
         return 0;
     }
 }
@@ -72,6 +72,7 @@ std::string result;
         }
       }
     }
+}
 
 int eval(std::string pref) {
   TStack <int, 100> stack;
