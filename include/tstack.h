@@ -33,10 +33,9 @@ public:
     }
     
     void push(T value) {
-        if (isFull()) {
-            return false;
-        }
-        arr[top++] = value;
+        if (!isFull()) {
+            arr[top++] = value;
+        }       
     }
     
 };
