@@ -3,7 +3,7 @@
 #include <map>
 #include "tstack.h"
 
-int prior(char operation) {
+int pr(char operation) {
     switch (operation) {
     case '(':
         return 0;
