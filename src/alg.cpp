@@ -81,13 +81,15 @@ std::string infx2pstfx(std::string inf) {
 int eval(std::string pref) {
     TStack <int, 100> stack;
     int result = 0;
+    int b = 0;
+    int a = 0;
     for (int i = 0; i < pref.length(); i++) {
         if (pr(pref[i]) == 4) {
             stack.push(pref[i] - '0');
         } else if (pr(pref[i]) < 4) {
-            int a = stack.get();
+            b = stack.get();
             stack.pop();
-            int b = stack.get();
+            a = stack.get();
             stack.pop();
             stack.push(calc(pref[i], a, b));
         }
