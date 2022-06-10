@@ -72,6 +72,13 @@ std::string result;
         }
       }
     }
+    while (!stack.isEmpty()) {
+    result.push_back(stack.get());
+    result.push_back(' ');
+    stack.pop();
+    }
+    result.pop_back();
+    return result;
 }
 
 int eval(std::string pref) {
@@ -79,15 +86,15 @@ int eval(std::string pref) {
   int result = 0;
   for (int i = 0; i < pref.length(); i++) {
     if (prior(pref[i]) == 4) {
-      stack1.push(pref[i] - '0');
+      stack.push(pref[i] - '0');
     }
     else if (prior(pref[i]) < 4) {
       int a = stack.get();
       int b = stack.get();
-      stack1.pop();
-      stack1.push(calcul(pref[i], a, b));
+      stack.pop();
+      stack.push(calc(pref[i], a, b));
     }
   }
-  result = stack1.get();
+  result = stack.get();
   return result;
 }
